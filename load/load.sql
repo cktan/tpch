@@ -1,6 +1,6 @@
-\i dss.ddl.money_enum
+\i dss.ddl.float
 
-set search_path=tpch1;
+set search_path=tpch;
 \copy customer from 'data/customer.tbl' with csv delimiter '|';
 \copy lineitem from 'data/lineitem.tbl' with csv delimiter '|';
 \copy nation from 'data/nation.tbl' with csv delimiter '|';

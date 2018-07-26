@@ -124,7 +124,8 @@ option  argument    default     action
                                 generate data
 
 -S      <n>                     Generate the <n>th part of a multi-part load
-                                or update set
+                                or update set. Valid number for <n> is between
+				1 and <children>
 
 -U      <updates>               Create a specified number of data sets
                                 in flat files for the update/delete 
