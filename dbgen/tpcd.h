@@ -49,6 +49,18 @@
 /*
  * database portability defines
  */
+#ifdef DEEPGREEN
+#define GEN_QUERY_PLAN  "EXPLAIN"
+#define START_TRAN      ""
+#define END_TRAN        "COMMIT;"
+#define SET_OUTPUT      ""
+#define SET_ROWCOUNT    "first %d\n"
+#define SET_DBASE       ""
+#define EOL_HANDLING    1
+#endif /* DEEPGREEN */
+
+
+
 #ifdef VECTORWISE
 #define GEN_QUERY_PLAN  "EXPLAIN"
 #define START_TRAN      ""

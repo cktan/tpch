@@ -44,6 +44,7 @@
 #include <math.h>
 
 #include "dss.h"
+#include "tpcd.h"
 #include "dsstypes.h"
 #include <string.h>
 
