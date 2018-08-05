@@ -1,0 +1,34 @@
+set search_path=tpch;
+
+CREATE TABLE XNATION  ( like nation )
+LOCATION ('xdrive://localhost:10300/tpch/nation.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XREGION  ( like region )
+LOCATION ('xdrive://localhost:10300/tpch/region.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XPART  ( like part )
+LOCATION ('xdrive://localhost:10300/tpch/part.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XSUPPLIER ( like supplier )
+LOCATION ('xdrive://localhost:10300/tpch/supplier.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XPARTSUPP ( like partsupp )
+LOCATION ('xdrive://localhost:10300/tpch/partsupp.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XCUSTOMER ( like customer )
+LOCATION ('xdrive://localhost:10300/tpch/customer.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XORDERS  ( like orders )
+LOCATION ('xdrive://localhost:10300/tpch/orders.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+
+CREATE TABLE XLINEITEM ( like lineitem )
+LOCATION ('xdrive://localhost:10300/tpch/lineitem.tbl*')
+FORMAT 'CSV' (DELIMITER '|');
+

@@ -1,12 +1,27 @@
-\i dss.ddl.float
-
 set search_path=tpch;
-\copy customer from 'data/customer.tbl' with csv delimiter '|';
-\copy lineitem from 'data/lineitem.tbl' with csv delimiter '|';
-\copy nation from 'data/nation.tbl' with csv delimiter '|';
-\copy orders from 'data/orders.tbl' with csv delimiter '|';
-\copy part from 'data/part.tbl' with csv delimiter '|';
-\copy partsupp from 'data/partsupp.tbl' with csv delimiter '|';
-\copy region from 'data/region.tbl' with csv delimiter '|';
-\copy supplier from 'data/supplier.tbl' with csv delimiter '|';
+
+truncate customer;
+insert into customer select * from xcustomer with csv delimiter '|';
+
+truncate lineitem;
+insert into lineitem select * from xlineitem with csv delimiter '|';
+
+truncate nation;
+insert into nation select * from xnation with csv delimiter '|';
+
+truncate orders;
+insert into orders select * from xorders with csv delimiter '|';
+
+truncate part;
+insert into part select * from xpart with csv delimiter '|';
+
+truncate partsupp;
+insert into partsupp select * from partsupp with csv delimiter '|';
+
+truncate region;
+insert into region select * from xregion with csv delimiter '|';
+
+truncate supplier;
+insert into supplier select * from xsupplier with csv delimiter '|';
+
 vacuum analyze;
