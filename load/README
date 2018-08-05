@@ -1,20 +1,18 @@
-0. Make dbgen. We will copy the whole dir to remote, so do not leave any tbl files
-
-      cd ../dbgen && make 
-
 1. Get 5 amazon machines.
 2. Name them mdw, sdw1, sdw2, sdw3 and sdw4
 3. Get the public IP and insert their entries into the /etc/hosts 
    on all 5 machines plus your laptop
-4. On each machine, create a dir /data/xdrive and make it writable
+4. On each machine, create a dir /data/xdrive/data and make it writable
 5. Install DG on all 5 machines
-6. edit gen_gen.py, set the SCALE and MACHINE vars
-7. python gen_gen.py > gen.sh
-8. bash gen.sh
-9. psql template1 -c 'create database tpch;'
-10. psql tpch -f dss.ddl.float
-11. psql tpch -f extab.ddl
-12. psql tpch -f load.sql
+6  on mdw:
+   6.1 git clone this repo
+   6.2 edit gen_gen.py, set the SCALE and MACHINE vars
+   6.3 python gen_gen.py > gen.sh
+   6.4 bash gen.sh
+   6.5 psql template1 -c 'create database tpch;'
+   6.6 psql tpch -f dss.ddl.float
+   6.7 psql tpch -f extab.ddl
+   6.8 psql tpch -f load.sql
 
 
 About Amazon Machines
