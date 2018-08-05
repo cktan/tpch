@@ -4,8 +4,6 @@
 #
 SCALE = 4
 MACHINE = ['sdw%d' % i for i in range(1, 5)]
-UNAME = 'ubuntu'
-PEMFILE = '/home/cktan/pem/aws-us-west-1-test.pem'
 DATADIR = '/data/xdrive/data'
 
 #
@@ -24,8 +22,8 @@ print
 #
 print '# clone dbgen to DATADIR'
 for m in MACHINE:
-    print "ssh -i %s %s@%s bash -c 'cd %s && rm -rf dbgen' " % (PEMFILE, UNAME, m, DATADIR)
-    print "scp -i %s -r ../dbgen %s@%s:%s" % (PEMFILE, UNAME, m, DATADIR)
+    print "ssh %s 'cd %s && rm -rf dbgen' " % (m, DATADIR)
+    print "scp -r ../dbgen %s:%s" % (m, DATADIR)
 
 
 #
@@ -36,8 +34,8 @@ print '# run dbgen on each machine'
 
 for i in range(len(MACHINE)):
     m = MACHINE[i]
-    print "ssh -i %s %s@%s bash -c 'cd %s/dbgen && ./dbgen -s %d -S %d -C %d &' " % (PEMFILE, 
-		UNAME, m, DATADIR, 
+    print "ssh %s 'cd %s/dbgen && ./dbgen -s %d -S %d -C %d' & " % (m,
+		DATADIR, 
 		SCALE,
 		i+1,
 		len(MACHINE)) 
