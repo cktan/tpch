@@ -1,27 +1,27 @@
 set search_path=tpch;
 
 truncate customer;
-insert into customer select * from xcustomer with csv delimiter '|';
+insert into customer select * from xcustomer ;
 
 truncate lineitem;
-insert into lineitem select * from xlineitem with csv delimiter '|';
+insert into lineitem select * from xlineitem ;
 
 truncate nation;
-insert into nation select * from xnation with csv delimiter '|';
+insert into nation select * from xnation ;
 
 truncate orders;
-insert into orders select * from xorders with csv delimiter '|';
+insert into orders select * from xorders ;
 
 truncate part;
-insert into part select * from xpart with csv delimiter '|';
+insert into part select * from xpart ;
 
 truncate partsupp;
-insert into partsupp select * from partsupp with csv delimiter '|';
+insert into partsupp select * from partsupp ;
 
 truncate region;
-insert into region select * from xregion with csv delimiter '|';
+insert into region select * from xregion ;
 
 truncate supplier;
-insert into supplier select * from xsupplier with csv delimiter '|';
+insert into supplier select * from xsupplier ;
 
 vacuum analyze;
