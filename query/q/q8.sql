@@ -4,8 +4,7 @@ select
 	o_year,
 	sum(case
 		when nation = 'ARGENTINA' then volume
-		else 0::money
-	end) / sum(volume) as mkt_share
+		else 0 end) / sum(volume) as mkt_share
 from
 	(
 		select

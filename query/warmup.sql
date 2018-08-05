@@ -1,4 +1,4 @@
-set search_path=tpch1;
+set search_path=tpch;
 select count(*) from lineitem;
 select count(*) from customer;
 select count(*) from nation;

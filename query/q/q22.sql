@@ -20,7 +20,7 @@ from
 				from
 					customer
 				where
-					c_acctbal > 0.00::money
+					c_acctbal > 0.00
 					and substring(c_phone from 1 for 2) in
 						('10', '11', '26', '22', '19', '20', '27')
 			)
