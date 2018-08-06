@@ -14,10 +14,10 @@ ssh sdw4 'cd /data/xdrive/data && rm -rf dbgen'
 scp -r ../dbgen sdw4:/data/xdrive/data
 
 # run dbgen on each machine
-ssh sdw1 'cd /data/xdrive/data/dbgen && ./dbgen -s 4 -S 1 -C 4' & 
-ssh sdw2 'cd /data/xdrive/data/dbgen && ./dbgen -s 4 -S 2 -C 4' & 
-ssh sdw3 'cd /data/xdrive/data/dbgen && ./dbgen -s 4 -S 3 -C 4' & 
-ssh sdw4 'cd /data/xdrive/data/dbgen && ./dbgen -s 4 -S 4 -C 4' & 
+ssh sdw1 'cd /data/xdrive/data/dbgen && ./dbgen -s 4000 -S 1 -C 4' & 
+ssh sdw2 'cd /data/xdrive/data/dbgen && ./dbgen -s 4000 -S 2 -C 4' & 
+ssh sdw3 'cd /data/xdrive/data/dbgen && ./dbgen -s 4000 -S 3 -C 4' & 
+ssh sdw4 'cd /data/xdrive/data/dbgen && ./dbgen -s 4000 -S 4 -C 4' & 
 wait
 
 # push tbl files to s3://vitessedata/tpch/*
