@@ -66,7 +66,7 @@ print 'wait'
 
 for i in range(len(MACHINE)):
     m = MACHINE[i]
-    print "ssh %s 'cd %s/dbgen && for i in $(< list); do echo $i; aws s3 cp $i s3://vitessedata/tpch/$i; done'  & "
+    print "ssh %s 'cd %s/dbgen && for i in $(< list); do echo $i; aws s3 cp $i s3://vitessedata/tpch/$i; done'  & " % (m, DATADIR)
 
 
 #
