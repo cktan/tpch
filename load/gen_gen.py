@@ -67,14 +67,21 @@ for i in range(len(MACHINE)):
 #  WAIT FOR COMPLETION
 #
 print 'wait'
+print
 
 
 for i in range(len(MACHINE)):
     m = MACHINE[i]
-    print "ssh %s 'cd %s/dbgen && for i in list??; do for j in $(< $i); do aws s3 cp $j s3://vitessedata/tpch/$j & done; done; wait'  &" % (m, DATADIR)
+    print '''ssh %s 'cd %s/dbgen && 
+                 ( for i in list??; do 
+                     ( for j in $(< $i); do aws s3 cp $j s3://vitessedata/tpch/$j ; done ) & 
+                   done ) && 
+             wait'  &''' % (m, DATADIR)
 
 
 #
 #  WAIT FOR COMPLETION
 #
+print
 print 'wait'
+print
