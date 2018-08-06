@@ -11,21 +11,18 @@ The rest of these instructions run on mdw:
    6.1 mkdir ~/p ; cd ~/p
    6.2 git clone https://github.com/vitessedata/tpch.git  # this repo
 
-7. Generate data:
+7. Generate data and push to S3:
    7.1 cd ~/p/tpch/load
    7.2 edit gen_gen.py, set the SCALE and MACHINE vars
    7.3 python gen_gen.py > gen.sh
    7.4 bash gen.sh
 
-8. Push data to s3:
-   8.1 
-
-9. Load data:
+8. Load data:
    
-   6.5 psql template1 -c 'create database tpch;'
-   6.6 psql tpch -f dss.ddl.float
-   6.7 psql tpch -f extab.ddl
-   6.8 psql tpch -f load.sql
+   8.1 psql template1 -c 'create database tpch;'
+   8.2 psql tpch -f dss.ddl.float
+   8.3 psql tpch -f extab.ddl
+   8.4 psql tpch -f load.sql
 
 
 About Amazon Machines
