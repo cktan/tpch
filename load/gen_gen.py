@@ -45,4 +45,23 @@ for i in range(len(MACHINE)):
 #
 print 'wait'
 
+#
+#  PUSH TO AWS 
+#
+print 
+print '# push tbl files to s3://vitessedata/download/tpch/*'
+
+print "aws s3 rm s3://vitessedata/download/tpch/ --recursive" 
+
+
+for i in range(len(MACHINE)):
+    m = MACHINE[i]
+    print "ssh %s 'cd %s/dbgen && ls -1 *tbl* > list' " % (m, DATADIR)
+
+
+
+for i in range(len(MACHINE)):
+    m = MACHINE[i]
+    print "ssh %s 'cd %s/dbgen && for i in $(< list); do echo $i; aws s3 cp $i s3://vitessedata/download/tpch/$i; done'  & "
+
 

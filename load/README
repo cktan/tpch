@@ -4,11 +4,24 @@
    on all 5 machines plus your laptop
 4. On each machine, create a dir /data/xdrive/data and make it writable
 5. Install DG on all 5 machines
-6  on mdw:
-   6.1 git clone this repo
-   6.2 edit gen_gen.py, set the SCALE and MACHINE vars
-   6.3 python gen_gen.py > gen.sh
-   6.4 bash gen.sh
+
+The rest of these instructions run on mdw:
+
+6. Setup:
+   6.1 mkdir ~/p ; cd ~/p
+   6.2 git clone https://github.com/vitessedata/tpch.git  # this repo
+
+7. Generate data:
+   7.1 cd ~/p/tpch/load
+   7.2 edit gen_gen.py, set the SCALE and MACHINE vars
+   7.3 python gen_gen.py > gen.sh
+   7.4 bash gen.sh
+
+8. Push data to s3:
+   8.1 
+
+9. Load data:
+   
    6.5 psql template1 -c 'create database tpch;'
    6.6 psql tpch -f dss.ddl.float
    6.7 psql tpch -f extab.ddl
