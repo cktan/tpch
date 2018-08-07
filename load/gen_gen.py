@@ -5,7 +5,7 @@
 SCALE = 2000
 MACHINE = ['sdw1', 'sdw2']
 NMACHINE = len(MACHINE)
-DATADIR = '/data1'
+DATADIR = '/data4'
 
 #
 #  GEN THE BUILD OF DBGEN
