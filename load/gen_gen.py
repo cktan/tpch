@@ -5,7 +5,7 @@
 SCALE = 2000
 MACHINE = ['sdw1', 'sdw2']
 NMACHINE = len(MACHINE)
-DATADIR = '/data/xdrive/data'
+DATADIR = '/data1'
 
 #
 #  GEN THE BUILD OF DBGEN
@@ -36,7 +36,7 @@ print '# run dbgen on each machine'
 C = min(SCALE, NMACHINE * 15)   # up to 15 dbgen procs per machine
 S = 0
 for c in range(C):
-    m = MACHINE[c/C]
+    m = MACHINE[c/15]
     S = S + 1    
     print "ssh %s 'cd %s/dbgen && ./dbgen -s %d -S %d -C %d' & " % (m,
 		DATADIR, 
