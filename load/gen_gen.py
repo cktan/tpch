@@ -20,6 +20,8 @@ print
 
 #  CLEAN UP s3 and make sure we can use awscli
 print "aws s3 rm s3://vitessedata/tpch/ --recursive"
+for m in MACHINE:
+    print "ssh %s 'aws s3 ls s3://vitessedata/tpch' " % m
 
 
 #
