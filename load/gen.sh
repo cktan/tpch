@@ -10,36 +10,52 @@ ssh sdw2 'cd /data4 && rm -rf dbgen'
 scp -r ../dbgen sdw2:/data4
 
 # run dbgen on each machine
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 1 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 2 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 3 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 4 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 5 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 6 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 7 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 8 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 9 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 10 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 11 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 12 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 13 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 14 -C 30' & 
-ssh sdw1 'cd /data4/dbgen && ./dbgen -s 2000 -S 15 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 16 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 17 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 18 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 19 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 20 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 21 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 22 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 23 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 24 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 25 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 26 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 27 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 28 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 29 -C 30' & 
-ssh sdw2 'cd /data4/dbgen && ./dbgen -s 2000 -S 30 -C 30' & 
+ssh sdw1 'cat > /data4/dbgen/mygen.sh' <<HEREHERE
+set -e
+./dbgen -s 2000 -S 1 -C 30 &
+./dbgen -s 2000 -S 2 -C 30 &
+./dbgen -s 2000 -S 3 -C 30 &
+./dbgen -s 2000 -S 4 -C 30 &
+./dbgen -s 2000 -S 5 -C 30 &
+./dbgen -s 2000 -S 6 -C 30 &
+./dbgen -s 2000 -S 7 -C 30 &
+./dbgen -s 2000 -S 8 -C 30 &
+./dbgen -s 2000 -S 9 -C 30 &
+./dbgen -s 2000 -S 10 -C 30 &
+./dbgen -s 2000 -S 11 -C 30 &
+./dbgen -s 2000 -S 12 -C 30 &
+./dbgen -s 2000 -S 13 -C 30 &
+./dbgen -s 2000 -S 14 -C 30 &
+./dbgen -s 2000 -S 15 -C 30 &
+
+wait
+HEREHERE
+
+ssh sdw1 'cd /data4/dbgen && bash mygen.sh' &
+
+ssh sdw2 'cat > /data4/dbgen/mygen.sh' <<HEREHERE
+set -e
+./dbgen -s 2000 -S 16 -C 30 &
+./dbgen -s 2000 -S 17 -C 30 &
+./dbgen -s 2000 -S 18 -C 30 &
+./dbgen -s 2000 -S 19 -C 30 &
+./dbgen -s 2000 -S 20 -C 30 &
+./dbgen -s 2000 -S 21 -C 30 &
+./dbgen -s 2000 -S 22 -C 30 &
+./dbgen -s 2000 -S 23 -C 30 &
+./dbgen -s 2000 -S 24 -C 30 &
+./dbgen -s 2000 -S 25 -C 30 &
+./dbgen -s 2000 -S 26 -C 30 &
+./dbgen -s 2000 -S 27 -C 30 &
+./dbgen -s 2000 -S 28 -C 30 &
+./dbgen -s 2000 -S 29 -C 30 &
+./dbgen -s 2000 -S 30 -C 30 &
+
+wait
+HEREHERE
+
+ssh sdw2 'cd /data4/dbgen && bash mygen.sh' &
+
 wait
 
 # push tbl files to s3://vitessedata/tpch/*

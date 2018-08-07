@@ -33,17 +33,26 @@ for m in MACHINE:
 print 
 print '# run dbgen on each machine'
 
+out = ['' for m in MACHINE]
+
 C = min(SCALE, NMACHINE * 15)   # up to 15 dbgen procs per machine
 S = 0
 for c in range(C):
-    m = MACHINE[c/15]
     S = S + 1    
-    print "ssh %s 'cd %s/dbgen && ./dbgen -s %d -S %d -C %d' & " % (m,
-		DATADIR, 
-		SCALE,
-		S,
-		C)
+    out[c/15] += ("./dbgen -s %d -S %d -C %d &\n" % (SCALE, S, C))
 
+
+for i in range(len(MACHINE)):
+    m = MACHINE[i]
+    print "ssh %s 'cat > %s/dbgen/mygen.sh' <<HEREHERE" % (m, DATADIR)
+    print 'set -e'
+    print out[i]
+    print 'wait'
+    print 'HEREHERE'
+    print
+    print "ssh %s 'cd %s/dbgen && bash mygen.sh' &" % (m, DATADIR)
+    print
+    
 
 #
 #  WAIT FOR COMPLETION
