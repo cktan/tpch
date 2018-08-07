@@ -2,8 +2,8 @@
 #
 #  SET THESE PARAMS
 #
-SCALE = 4000
-MACHINE = ['sdw%d' % i for i in range(1, 5)]
+SCALE = 2000
+MACHINE = ['sdw1', 'sdw2']
 NMACHINE = len(MACHINE)
 DATADIR = '/data/xdrive/data'
 
