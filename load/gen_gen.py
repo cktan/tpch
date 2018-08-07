@@ -18,6 +18,10 @@ print 'cd ../dbgen && make'
 print 
 
 
+#  CLEAN UP s3 and make sure we can use awscli
+print "aws s3 rm s3://vitessedata/tpch/ --recursive"
+
+
 #
 #  CLONE THE DBGEN DIR TO DATADIR ON REMOTE MACHINES
 #
