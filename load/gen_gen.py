@@ -35,11 +35,12 @@ print '# run dbgen on each machine'
 
 out = ['' for m in MACHINE]
 
-C = min(SCALE, NMACHINE * 15)   # up to 15 dbgen procs per machine
+CMAXPERMACHINE = 20    # up to 20 dbgen procs per machine
+C = min(SCALE, NMACHINE * CMAXPERMACHINE)
 S = 0
 for c in range(C):
     S = S + 1    
-    out[c/15] += ("./dbgen -s %d -S %d -C %d &\n" % (SCALE, S, C))
+    out[c/CMAXPERMACHINE] += ("./dbgen -s %d -S %d -C %d &\n" % (SCALE, S, C))
 
 
 for i in range(len(MACHINE)):
