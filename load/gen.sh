@@ -3,7 +3,8 @@ set -e
 # make dbgen
 cd ../dbgen && make
 
-aws s3 rm s3://vitessedata/tpch/ --recursive
+aws s3 rm s3://vitessedata/tpch/ --recursive || true
+aws s3 ls s3://vitessedata/tpch
 ssh sdw1 'aws s3 ls s3://vitessedata/tpch' 
 ssh sdw2 'aws s3 ls s3://vitessedata/tpch' 
 # clone dbgen to DATADIR
