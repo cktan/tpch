@@ -4,9 +4,9 @@ set -e
 cd ../dbgen && make
 
 aws s3 rm s3://vitessedata/tpch/ --recursive || true
-aws s3 ls s3://vitessedata/tpch
-ssh sdw1 'aws s3 ls s3://vitessedata/tpch' 
-ssh sdw2 'aws s3 ls s3://vitessedata/tpch' 
+aws s3 ls s3://vitessedata
+ssh sdw1 'aws s3 ls s3://vitessedata' 
+ssh sdw2 'aws s3 ls s3://vitessedata' 
 # clone dbgen to DATADIR
 ssh sdw1 'cd /data4 && rm -rf dbgen' 
 scp -r ../dbgen sdw1:/data4
