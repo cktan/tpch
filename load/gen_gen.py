@@ -47,7 +47,7 @@ C = min(SCALE, NMACHINE * CMAXPERMACHINE)
 S = 0
 for c in range(C):
     S = S + 1    
-    out[c/CMAXPERMACHINE] += ("./dbgen -s %d -S %d -C %d &\n" % (SCALE, S, C))
+    out[c/CMAXPERMACHINE] += ("./dbgen -f -s %d -S %d -C %d &\n" % (SCALE, S, C))
 
 
 for i in range(len(MACHINE)):
