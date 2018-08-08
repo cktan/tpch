@@ -73,7 +73,7 @@ ssh sdw2 'cd /data4/dbgen && bash mygen.sh' &
 wait
 
 # push tbl files to s3://vitessedata/tpch/*
-aws s3 rm s3://vitessedata/tpch/ --recursive
+aws s3 rm s3://vitessedata/tpch/ --recursive  || true
 ssh sdw1 'cd /data4/dbgen && rm -f list* && ls -1 *tbl* > list && split -n 8 list list' & 
 ssh sdw2 'cd /data4/dbgen && rm -f list* && ls -1 *tbl* > list && split -n 8 list list' & 
 wait
