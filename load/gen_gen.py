@@ -73,7 +73,7 @@ print 'wait'
 print 
 print '# push tbl files to s3://vitessedata/tpch/*'
 
-print "aws s3 rm s3://vitessedata/tpch/ --recursive" 
+print "aws s3 rm s3://vitessedata/tpch/ --recursive  || true"
 
 
 for i in range(len(MACHINE)):
