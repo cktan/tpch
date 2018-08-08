@@ -74,8 +74,8 @@ wait
 
 # push tbl files to s3://vitessedata/tpch/*
 aws s3 rm s3://vitessedata/tpch/ --recursive  || true
-ssh sdw1 'cd /data4/dbgen && rm -f list* && ls -1 *tbl* > list && split -n l/8 list list' & 
-ssh sdw2 'cd /data4/dbgen && rm -f list* && ls -1 *tbl* > list && split -n l/8 list list' & 
+ssh sdw1 'cd /data4/dbgen && rm -f list* && ls -1 *tbl* | shuf > list && split -n l/8 list list' & 
+ssh sdw2 'cd /data4/dbgen && rm -f list* && ls -1 *tbl* | shuf > list && split -n l/8 list list' & 
 wait
 
 ssh sdw1 'cd /data4/dbgen && 
