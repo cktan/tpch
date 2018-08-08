@@ -22,7 +22,8 @@ The rest of these instructions run on mdw:
    8.1 psql template1 -c 'create database tpch;'
    8.2 psql tpch -f dss.ddl.float
    8.3 psql tpch -f extab.ddl
-   8.4 psql tpch -f load.sql
+   8.4 psql tpch -f view.sql
+   8.5 psql tpch -f load.sql
 
 
 About Amazon Machines
