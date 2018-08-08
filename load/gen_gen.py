@@ -78,7 +78,7 @@ print "aws s3 rm s3://vitessedata/tpch/ --recursive  || true"
 
 for i in range(len(MACHINE)):
     m = MACHINE[i]
-    print "ssh %s 'cd %s/dbgen && rm -f list* && ls -1 *tbl* > list && split -n 8 list list' & " % (m, DATADIR)
+    print "ssh %s 'cd %s/dbgen && rm -f list* && ls -1 *tbl* > list && split -n l/8 list list' & " % (m, DATADIR)
 
 #
 #  WAIT FOR COMPLETION
