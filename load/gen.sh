@@ -80,12 +80,12 @@ wait
 
 ssh sdw1 'cd /data4/dbgen && 
                  ( for i in list??; do 
-                     ( for j in $(< $i); do aws s3 cp $j s3://vitessedata/tpch/$j ; done ) & 
+                     ( for j in $(< $i); do aws s3 cp $j s3://vitessedata/tpch/$j --quiet; done ) & 
                    done ) && 
              wait'  &
 ssh sdw2 'cd /data4/dbgen && 
                  ( for i in list??; do 
-                     ( for j in $(< $i); do aws s3 cp $j s3://vitessedata/tpch/$j ; done ) & 
+                     ( for j in $(< $i); do aws s3 cp $j s3://vitessedata/tpch/$j --quiet; done ) & 
                    done ) && 
              wait'  &
 
