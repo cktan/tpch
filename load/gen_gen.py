@@ -42,11 +42,11 @@ print '# run dbgen on each machine'
 
 out = ['' for m in MACHINE]
 
-CMAXPERMACHINE = 20    # up to 20 dbgen procs per machine
+CMAXPERMACHINE = 40    # up to 20 dbgen procs per machine
 C = min(SCALE, NMACHINE * CMAXPERMACHINE)
 S = 0
 for c in range(C):
-    S = S + 1    
+    S = S + 1 
     out[c/CMAXPERMACHINE] += ("./dbgen -f -s %d -S %d -C %d &\n" % (SCALE, S, C))
 
 
@@ -91,7 +91,7 @@ for i in range(len(MACHINE)):
     m = MACHINE[i]
     print '''ssh %s 'cd %s/dbgen && 
                  ( for i in list??; do 
-                     ( for j in $(< $i); do echo $j; aws s3 cp $j s3://vitessedata/tpch/$j --quiet; done ) & 
+                     ( for j in $(< $i); do F=$(( $RANDOM %% 10 )); echo $j; aws s3 cp $j s3://vitessedata/tpch/$F/$j --quiet; done ) & 
                    done ) && 
              wait'  &''' % (m, DATADIR)
 
