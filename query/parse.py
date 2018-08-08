@@ -1,5 +1,5 @@
-# given two files out.0311.exx0 and out.0311.exx1, run parse like this: 
-#    python parse.py out.0311.exx?
+# given two files out0 and out1, run parse like this: 
+#    python parse.py out0 out1
 #
 import fileinput
 import operator

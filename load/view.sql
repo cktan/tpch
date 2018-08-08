@@ -1,3 +1,5 @@
+set search_path=tpch;
+
 create view q0 as
 select
 	l_returnflag,
