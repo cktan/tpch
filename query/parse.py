@@ -31,7 +31,10 @@ for x in sorted_out:
     qnum = x[0]
     qsum = x[1]
     print qnum, qsum[0], qsum[1],
-    speedup = qsum[0]*1.0/qsum[1]
+    if qsum[1] > 0:
+        speedup = qsum[0]*1.0/qsum[1]
+    else:
+        speedup = 0
     if speedup < 0.9 or speedup > 1.2:
 	print '%.2fx' % speedup
     else: 
