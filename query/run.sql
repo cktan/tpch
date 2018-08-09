@@ -27,7 +27,7 @@ drop table if exists out22;
 
 set vitesse.enable=:exx;
 set statement_timeout=1800000;
-set statement_mem=2000MB;
+set statement_mem=2000000kb;
 \timing on
 
 \echo query 0
