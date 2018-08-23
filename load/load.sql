@@ -16,7 +16,7 @@ truncate part;
 insert into part select * from xpart ;
 
 truncate partsupp;
-insert into partsupp select * from partsupp ;
+insert into partsupp select * from xpartsupp ;
 
 truncate region;
 insert into region select * from xregion ;
