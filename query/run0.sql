@@ -1,6 +1,9 @@
 -- using 1915591743 as a seed to the RNG
 
 set search_path=tpch;
+set vitesse.enable=0;
+set statement_timeout=1800000;
+set statement_mem='2000000kB';
 drop table if exists out0;
 drop table if exists out1;
 drop table if exists out2;
@@ -25,9 +28,6 @@ drop table if exists out20;
 drop table if exists out21;
 drop table if exists out22;
 
-set vitesse.enable=:exx;
-set statement_timeout=1800000;
-set statement_mem='2000000kB';
 \timing on
 
 \echo query 0
