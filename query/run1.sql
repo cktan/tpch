@@ -2,6 +2,7 @@
 
 set search_path=tpchpax;
 set vitesse.enable=1;
+set vitesse_spillz=0;
 set statement_timeout=1800000;
 set statement_mem='2000000kB';
 drop table if exists out0;
