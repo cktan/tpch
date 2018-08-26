@@ -24,7 +24,7 @@ The rest of these instructions run on mdw:
    8.3 psql tpch -f extab.ddl
    8.4 psql tpch -f view.sql
    8.5 psql tpch -f load.sql
-   8.6 psql tpch -f pax.ddl
+   8.6 psql tpch -f lz4.ddl
    8.7 psql tpch -f paxview.sql
    8.8 psql tpch -f paxload.sql
 
