@@ -1,10 +1,10 @@
 -- using 1915591743 as a seed to the RNG
 
-set search_path=tpch;
 set vitesse.enable=0;
-set vitesse_spillz=0;
-set statement_timeout=1800000;
-set statement_mem='2000000kB';
+set search_path=tpch;
+
+\i settings.sql
+
 drop table if exists out0;
 drop table if exists out1;
 drop table if exists out2;
