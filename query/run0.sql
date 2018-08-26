@@ -4,4 +4,4 @@ set vitesse.enable=0;
 set search_path=tpch;
 
 \i settings.sql
-
+\i query.sql
